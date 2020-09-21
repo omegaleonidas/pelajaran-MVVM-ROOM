@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+
+    android:layout_height="match_parent"
+    tools:context=".Register1Fragment">
+
+    <!-- TODO: Update blank fragment layout -->
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+
+
+        >
+
+
+        <com.airbnb.lottie.LottieAnimationView
+            android:layout_width="213dp"
+            android:layout_height="223dp"
+
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+
+            app:layout_constraintHorizontal_bias="0.497"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.263"
+
+            app:lottie_autoPlay="true"
+            app:lottie_rawRes="@raw/login">
+
+
+        </com.airbnb.lottie.LottieAnimationView>
+
+        <EditText
+            android:id="@+id/tvIdRegister"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+
+            android:layout_marginStart="32dp"
+            android:layout_marginLeft="32dp"
+
+            android:layout_marginTop="292dp"
+            android:layout_marginEnd="32dp"
+
+            android:layout_marginRight="32dp"
+            android:drawableStart="@drawable/ic_baseline_account_box_24"
+            android:hint=" username"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tvStep1"></EditText>
+
+        <EditText
+            android:id="@+id/tvEmailRegister"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_marginStart="32dp"
+            android:layout_marginLeft="32dp"
+            android:layout_marginTop="12dp"
+            android:layout_marginEnd="32dp"
+            android:inputType="textEmailAddress"
+
+            android:layout_marginRight="32dp"
+            android:drawableStart="@drawable/ic_baseline_email_24"
+            android:hint=" email"
+
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tvIdRegister" />
+
+        <Button
+            android:id="@+id/btnNext"
+            android:layout_width="290dp"
+            android:layout_height="50dp"
+            android:layout_marginTop="64dp"
+            android:background="@drawable/baground_botton"
+            android:text="Next"
+            android:textColor="@android:color/white"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.495"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tvEmailRegister"
+            app:layout_constraintVertical_bias="0.0" />
+
+        <TextView
+            android:id="@+id/tvStep1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="60dp"
+            android:drawableStart="@drawable/ic_baseline_arrow_back_ios_24"
+            android:text="Step 1"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.132"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</FrameLayout>
