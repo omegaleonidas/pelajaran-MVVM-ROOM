@@ -11,7 +11,7 @@ class flashscreen : AppCompatActivity() {
         setContentView(R.layout.activity_flashscreen)
         Handler().postDelayed(Runnable {
             startActivity(Intent(this, MainActivity::class.java))
-        }, 2000)
+        }, 5000)
 
     }
     override fun onDestroy() {

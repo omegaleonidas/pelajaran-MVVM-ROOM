@@ -191,12 +191,12 @@ class JadwalFragment : Fragment() {
 
     private fun showAddJadwal(it: Unit?) {
         Toast.makeText(context, "Jadwal   pelajaran berhasil disimpan", Toast.LENGTH_SHORT).show()
-        activity?.onBackPressed()
+        jadwalViewModel.showJadwalView()
     }
 
     private fun showUpdateJadwal(it: Unit?) {
         Toast.makeText(context, "Jadwal pelajran berhasil diupdate", Toast.LENGTH_SHORT).show()
-        activity?.onBackPressed()
+        jadwalViewModel.showJadwalView()
     }
 
     private fun showDeleteJadwal(it: Unit?) {
