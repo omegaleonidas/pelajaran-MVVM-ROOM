@@ -6,6 +6,7 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.example.register.R
 import com.example.register.local.model.Jadwal
+import kotlinx.android.synthetic.main.dialog_from_jadwal.view.*
 import kotlinx.android.synthetic.main.item_jadwal.view.*
 
 class JadwalAdapter(

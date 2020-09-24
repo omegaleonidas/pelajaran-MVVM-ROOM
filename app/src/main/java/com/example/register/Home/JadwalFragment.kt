@@ -1,5 +1,6 @@
 package com.example.register.Home
 
+import android.annotation.SuppressLint
 import android.app.AlertDialog
 import android.app.Dialog
 import android.os.Bundle
@@ -8,6 +9,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
+import androidx.core.os.bundleOf
 import androidx.lifecycle.ViewModelProvider
 import com.example.register.Home.Adapter.JadwalAdapter
 import com.example.register.R
@@ -26,6 +28,7 @@ class JadwalFragment : Fragment() {
 
     private var jadwalDatabase: DatabaseJadwal? = null
     lateinit var jadwalViewModel: JadwalViewModel
+    var getName : String? = null
 
     private var dialogView: Dialog? = null
     override fun onCreateView(
@@ -61,12 +64,15 @@ class JadwalFragment : Fragment() {
         val dialog = AlertDialog.Builder(context)
         val view: View = layoutInflater.inflate(R.layout.dialog_from_jadwal, null)
         dialog.setView(view)
+
+
         view.btnSave.setOnClickListener {
             if (view.editTextTextPersonName.text.isNotEmpty()) {
 
                 var pelajaran = view.editTextTextPersonName.text.toString()
                 var keterangan = view.tvDesckipsi.text.toString()
                 var tanggal = getDate()
+
 
                 jadwalViewModel.addJadwalView(Jadwal(null, pelajaran, keterangan, tanggal))
 
@@ -116,6 +122,9 @@ class JadwalFragment : Fragment() {
 
             override fun update(item: Jadwal?) {
                 getShowUpdateData(item)
+
+
+
             }
 
         })
@@ -128,12 +137,20 @@ class JadwalFragment : Fragment() {
         val view: View = layoutInflater.inflate(R.layout.dialog_from_jadwal, null)
         dialog.setView(view)
         view.btnSave.text = "update"
+        view.editTextTextPersonName.setText(item?.pelajaran)
+        view.tvDesckipsi.setText(item?.keterangan)
+
+
+
         view.btnSave.setOnClickListener {
+            val id = item?.id
+            val matapelajran = view.editTextTextPersonName.text.toString()
+            val keterangan = view.tvDesckipsi.text.toString()
+            val date = getDate()
+
             if (view.editTextTextPersonName.text.isNotEmpty()) {
-                val id = item?.id
-                val matapelajran = view.editTextTextPersonName.text.toString()
-                val keterangan = view.tvDesckipsi.text.toString()
-                val date = getDate()
+
+
                 jadwalViewModel.updateJadwalView(Jadwal(id, matapelajran, keterangan, date))
                 dialogView?.dismiss()
             } else {

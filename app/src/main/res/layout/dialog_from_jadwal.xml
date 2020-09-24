@@ -2,10 +2,11 @@
 <androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
     android:padding="15dp"
     app:cardBackgroundColor="@color/colorPrimary"
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content">
+    app:cardCornerRadius="15dp">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
@@ -23,19 +24,22 @@
             app:layout_constraintHorizontal_bias="0.93"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
+
             app:layout_constraintVertical_bias="0.092"
             app:srcCompat="@drawable/ic_baseline_close_24" />
 
         <EditText
             android:id="@+id/editTextTextPersonName"
             android:layout_width="292dp"
+            android:paddingLeft="15dp"
+            android:text="masuk"
             android:layout_height="39dp"
             android:layout_marginTop="108dp"
-            android:padding="5dp"
             android:background="@drawable/border_gray"
             android:ems="10"
-
             android:hint="Name"
+
+            android:padding="5dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.268"
             app:layout_constraintStart_toStartOf="parent"
@@ -43,15 +47,19 @@
 
         <EditText
             android:id="@+id/tvDesckipsi"
-            android:layout_width="339dp"
-            android:layout_height="104dp"
+            android:layout_width="296dp"
+            android:layout_height="40dp"
             android:layout_marginTop="48dp"
             android:background="@drawable/border_gray"
-
             android:hint="Name"
+
             android:inputType="textPersonName"
+
+            android:paddingLeft="15sp"
+            android:text="masuk"
             app:layout_constraintEnd_toEndOf="parent"
 
+            app:layout_constraintHorizontal_bias="0.242"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/editTextTextPersonName" />
 
@@ -74,21 +82,25 @@
             android:id="@+id/textView"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Mata Pelajaran"
+            android:text="Mata Pelajaran :"
+            android:textSize="20dp"
+            android:textColor="@android:color/white"
             app:layout_constraintBottom_toTopOf="@+id/editTextTextPersonName"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.101"
+            app:layout_constraintHorizontal_bias="0.09"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.815" />
+            app:layout_constraintVertical_bias="0.775" />
 
         <TextView
             android:id="@+id/textView2"
             android:layout_width="wrap_content"
+            android:textSize="20dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="32dp"
             android:layout_marginLeft="32dp"
-            android:text="keterangan"
+            android:text="keterangan :"
+            android:textColor="@android:color/white"
             app:layout_constraintBottom_toTopOf="@+id/tvDesckipsi"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/editTextTextPersonName"
