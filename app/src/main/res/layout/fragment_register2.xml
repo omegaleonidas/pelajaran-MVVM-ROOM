@@ -15,16 +15,17 @@
         >
 
         <com.airbnb.lottie.LottieAnimationView
-            android:layout_width="242dp"
-            android:layout_height="249dp"
+            android:id="@+id/lottieAnimationView4"
+            android:layout_width="245dp"
+            android:layout_height="250dp"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
 
-            app:layout_constraintHorizontal_bias="0.473"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.497"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.12"
 
+            app:layout_constraintVertical_bias="0.197"
             app:lottie_autoPlay="true"
             app:lottie_rawRes="@raw/login">
 
@@ -37,17 +38,18 @@
             android:layout_height="50dp"
             android:layout_marginStart="32dp"
             android:layout_marginLeft="32dp"
-            android:layout_marginTop="244dp"
             android:layout_marginEnd="32dp"
             android:layout_marginRight="32dp"
             android:drawableStart="@drawable/ic_baseline_enhanced_encryption_24"
 
             android:hint=" password"
             android:inputType="textPassword"
+            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/tvStep2"></EditText>
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.646"></EditText>
 
         <EditText
             android:id="@+id/tvPassword2"
@@ -55,53 +57,58 @@
             android:layout_height="50dp"
             android:layout_marginStart="32dp"
             android:layout_marginLeft="32dp"
-            android:layout_marginTop="16dp"
             android:layout_marginEnd="32dp"
             android:layout_marginRight="32dp"
-            android:drawableStart="@drawable/ic_baseline_enhanced_encryption_24"
 
+            android:drawableStart="@drawable/ic_baseline_enhanced_encryption_24"
             android:hint=" password"
             android:inputType="textPassword"
+            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/tvPassword1" />
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.734" />
 
         <Button
             android:id="@+id/btnsubmit"
             android:layout_width="302dp"
             android:layout_height="52dp"
-            android:layout_marginTop="44dp"
             android:background="@drawable/baground_botton"
             android:text="submit"
             android:textColor="@android:color/white"
+            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.495"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/tvPassword2" />
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.84" />
 
         <TextView
             android:id="@+id/tvStep2"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="72dp"
             android:drawableStart="@drawable/ic_baseline_arrow_back_ios_24"
             android:text="Step 2"
+            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.046"
+            app:layout_constraintHorizontal_bias="0.092"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.077" />
 
         <TextView
             android:id="@+id/tvInformasi"
-            android:layout_width="275dp"
-            android:layout_height="49dp"
+            android:layout_width="332dp"
+            android:layout_height="62dp"
             android:text="hallo $name  untuk melanjutkan  register silahkan isi passsword dibawah"
-            app:layout_constraintBottom_toTopOf="@+id/tvPassword1"
+            android:textSize="15dp"
+            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.235"
+            app:layout_constraintHorizontal_bias="0.405"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/tvStep2"
-            app:layout_constraintVertical_bias="1.0" />
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.541" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 

@@ -12,6 +12,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
 import androidx.core.os.bundleOf
+import androidx.fragment.app.viewModels
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.NavController
@@ -20,6 +21,7 @@ import com.example.register.Home.HomeActivity
 import com.example.register.ViewModel.LoginViewModel
 import kotlinx.android.synthetic.main.fragment_main.*
 import kotlinx.android.synthetic.main.fragment_register1.*
+import kotlin.math.log
 
 
 class MainFragment : Fragment(), View.OnClickListener {
@@ -49,6 +51,8 @@ class MainFragment : Fragment(), View.OnClickListener {
 
     }
 
+
+
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         navControler = Navigation.findNavController(view)
@@ -64,6 +68,7 @@ class MainFragment : Fragment(), View.OnClickListener {
         when (v?.id) {
             R.id.btnRegister ->
                 navControler!!.navigate(R.id.action_mainFragment_to_register1Fragment)
+
             R.id.btnLogin -> {
                 strUsername = tvid.text.toString().trim()
                 strPassword = tvPassword.text.toString().trim()
@@ -74,10 +79,9 @@ class MainFragment : Fragment(), View.OnClickListener {
                 } else if (strPassword.isEmpty()) {
                     tvPassword.error = "masukkan password"
                 } else {
-
-                    loginViewModel.getLoginDetails(requireContext(), strUsername, strPassword)!!
-                        .observe(this, Observer {
-
+                  loginViewModel.getLoginDetails(requireContext(),strUsername,strPassword)!!
+                        .observe(viewLifecycleOwner, Observer {
+                            Log.d("TAG","datamasuk $it")
                             if (it == null) {
                                 Toast.makeText(
                                     context,
@@ -92,10 +96,11 @@ class MainFragment : Fragment(), View.OnClickListener {
 
                                 val bundle = bundleOf(
                                     "name" to tvid.text.toString().trim()
-
-
                                 )
-                                navControler!!.navigate(R.id.action_mainFragment_to_berandaFragment2,bundle)
+                                navControler!!.navigate(
+                                    R.id.action_mainFragment_to_berandaFragment2,
+                                    bundle
+                                )
 
 
                             }
@@ -109,11 +114,6 @@ class MainFragment : Fragment(), View.OnClickListener {
         }
     }
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-
-
-    }
 
 }
 

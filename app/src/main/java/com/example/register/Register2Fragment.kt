@@ -11,6 +11,7 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.NavController
 import androidx.navigation.Navigation
 import com.example.register.ViewModel.LoginViewModel
+import com.example.register.local.model.User
 import kotlinx.android.synthetic.main.fragment_register2.*
 
 
@@ -51,6 +52,9 @@ class Register2Fragment : Fragment(), View.OnClickListener {
 
     }
 
+
+
+
     override fun onClick(v: View?) {
         when (v?.id) {
             R.id.btnsubmit -> {
@@ -77,9 +81,10 @@ class Register2Fragment : Fragment(), View.OnClickListener {
                                     tvPassword1.text.toString(),
                                     tvPassword2.text.toString()
 
-                                    )
+                                )
                             }
                         }
+                        Toast.makeText(context,"data telah di tambahkan ",Toast.LENGTH_SHORT).show()
                         navController.navigate(R.id.resultFragment, bundle)
 
                     }
@@ -89,7 +94,7 @@ class Register2Fragment : Fragment(), View.OnClickListener {
                 }
 
             }
-            R.id.tvStep2 -> navController.navigate(R.id.register1Fragment)
+            R.id.tvStep2 -> activity?.onBackPressed()
 
         }
     }

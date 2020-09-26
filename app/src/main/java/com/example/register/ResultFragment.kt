@@ -41,7 +41,8 @@ class ResultFragment : Fragment(), View.OnClickListener {
     override fun onClick(v: View?) {
         when (v!!.id) {
             R.id.btnBackLogin -> navController!!.navigate(R.id.mainFragment)
-        }
+    }
+
     }
 
 }
