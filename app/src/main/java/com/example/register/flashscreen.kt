@@ -13,6 +13,8 @@ class flashscreen : AppCompatActivity() {
             startActivity(Intent(this, MainActivity::class.java))
         }, 5000)
 
+        title = ""
+
     }
     override fun onDestroy() {
         super.onDestroy()

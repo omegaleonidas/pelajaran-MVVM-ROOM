@@ -4,6 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:paddingBottom="30dp"
+    android:paddingTop="10dp"
 
     tools:context=".Home.JadwalFragment">
 

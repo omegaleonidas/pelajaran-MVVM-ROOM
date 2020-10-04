@@ -31,15 +31,15 @@
         <EditText
             android:id="@+id/editTextTextPersonName"
             android:layout_width="292dp"
-            android:paddingLeft="15dp"
-
             android:layout_height="39dp"
+
             android:layout_marginTop="108dp"
             android:background="@drawable/border_gray"
             android:ems="10"
             android:hint="Mata Pelajaran"
-
             android:padding="5dp"
+
+            android:paddingLeft="15dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.268"
             app:layout_constraintStart_toStartOf="parent"
@@ -47,19 +47,19 @@
 
         <EditText
             android:id="@+id/tvDesckipsi"
-            android:layout_width="296dp"
-            android:layout_height="40dp"
-            android:layout_marginTop="48dp"
+            android:layout_width="297dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="52dp"
             android:background="@drawable/border_gray"
-            android:hint="Keterangan"
+            android:ems="10"
 
-            android:inputType="textPersonName"
-
-            android:paddingLeft="15sp"
+            android:hint="keterangan"
+            android:padding="5dp"
+            android:textSize="20dp"
 
             app:layout_constraintEnd_toEndOf="parent"
 
-            app:layout_constraintHorizontal_bias="0.242"
+            app:layout_constraintHorizontal_bias="0.28"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/editTextTextPersonName" />
 
@@ -83,8 +83,8 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Mata Pelajaran :"
-            android:textSize="20dp"
             android:textColor="@android:color/white"
+            android:textSize="20dp"
             app:layout_constraintBottom_toTopOf="@+id/editTextTextPersonName"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.09"
@@ -95,12 +95,12 @@
         <TextView
             android:id="@+id/textView2"
             android:layout_width="wrap_content"
-            android:textSize="20dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="32dp"
             android:layout_marginLeft="32dp"
             android:text="keterangan :"
             android:textColor="@android:color/white"
+            android:textSize="20dp"
             app:layout_constraintBottom_toTopOf="@+id/tvDesckipsi"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/editTextTextPersonName"

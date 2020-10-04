@@ -19,7 +19,9 @@ class HomeActivity : AppCompatActivity() {
         setContentView(R.layout.activity_home)
         var nama = intent.getStringExtra(LOGIN_SESSION)
 
-        tvname.text = " HELLO  $nama"
+
+
+        title = " HELLO  $nama"
 
 
 

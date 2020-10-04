@@ -22,8 +22,6 @@ class JadwalAdapter(
 
     ) :
         RecyclerView.ViewHolder(view) {
-
-
         fun bind(item: Jadwal?) {
             view.tvDate.text = item?.date
             view.tvJudulJadwal.text = item?.pelajaran
@@ -32,13 +30,9 @@ class JadwalAdapter(
                 itemClick.update(item)
 
             }
-            view.imageButton2.setOnClickListener{
+            view.imageButton2.setOnClickListener {
                 itemClick.delete(item)
             }
-
-
-
-
         }
     }
 
@@ -56,9 +50,9 @@ class JadwalAdapter(
         holder.bind(item)
     }
 
-    interface OnClickListener{
-        fun update (item: Jadwal?)
-        fun delete (item: Jadwal?)
+    interface OnClickListener {
+        fun update(item: Jadwal?)
+        fun delete(item: Jadwal?)
     }
 
 
