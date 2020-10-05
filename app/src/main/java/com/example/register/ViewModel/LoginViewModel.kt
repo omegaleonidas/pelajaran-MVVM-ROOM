@@ -1,33 +1,73 @@
 package com.example.register.ViewModel
 
 import android.app.Application
-import android.content.Context
 import android.util.Log
 import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
-import androidx.lifecycle.ViewModel
-import com.example.register.Repository.JadwalRepository
+import com.example.register.Helper.SessonManager
 import com.example.register.Repository.LoginRepository
 import com.example.register.local.DatabaseJadwal
-import com.example.register.local.model.Jadwal
 import com.example.register.local.model.User
 
 class LoginViewModel(application: Application) : AndroidViewModel(application) {
     var liveDataLogin: LiveData<User>? = null
 
-    fun insertData(context: Context, username: String, email:String,password:String,password1:String) {
-        LoginRepository.insertData(context,username,email,password,password1)
+
+    private var databaseJadwal: DatabaseJadwal? = null
+    val repository = LoginRepository(application.applicationContext)
+    var responShowUser = MutableLiveData<List<User>?>()
+    var detailLogin = MutableLiveData<User>()
+
+    var isError = MutableLiveData<Throwable>()
+    var AddUser = MutableLiveData<Unit>()
+    var detailLCekLogin = MutableLiveData<User>()
+
+
+    fun showUserView() {
+        repository.showUser({
+            responShowUser.value = it
+        }, {
+            isError.value = it
+        })
+    }
+
+    fun addUserView(item: User) {
+        repository.insertUser(item, {
+            AddUser.value = it
+        }, {
+            isError.value = it
+        })
     }
 
 
-    fun getLoginDetails(context: Context, username: String,password: String) : LiveData<User>? {
-        liveDataLogin = LoginRepository.getLoginDetail(context,username,password)
-        return liveDataLogin
+    fun getLogin(username: String, password: String): LiveData<User> {
+
+        val user = MutableLiveData<User>()
+
+        repository.detailUser(username, password, {
+            Log.d("TAG", "lloginValidation: ViewModel getDataEmail  $it.")
+            detailLogin.value = it
+
+        }, {
+            isError.value = it
+        })
+
+        return user
     }
-    fun getCekRegister(context: Context, username: String,email: String) : LiveData<User>? {
-        liveDataLogin = LoginRepository.getCeklogin(context,username,email)
-        return liveDataLogin
+
+    fun getCekRegister(username: String, email: String): LiveData<User> {
+
+        val user = MutableLiveData<User>()
+
+        repository.cekLoginRegister(username, email, {
+            Log.d("TAG", "lloginValidation: ViewModel getDataEmail  $it.")
+            detailLCekLogin.value = it
+        }, {
+            isError.value = it
+        })
+
+        return user
     }
 
 //

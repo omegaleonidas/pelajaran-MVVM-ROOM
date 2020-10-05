@@ -1,78 +1,107 @@
 package com.example.register.Repository
 
 import android.annotation.SuppressLint
-import android.content.AsyncQueryHandler
 import android.content.Context
-import android.database.DatabaseErrorHandler
-import android.util.Log
-import androidx.lifecycle.LiveData
+import com.example.register.Helper.SessonManager
 import com.example.register.local.DatabaseJadwal
-import com.example.register.local.model.Jadwal
 import com.example.register.local.model.User
 import io.reactivex.rxjava3.android.schedulers.AndroidSchedulers
 import io.reactivex.rxjava3.core.Observable
 import io.reactivex.rxjava3.schedulers.Schedulers
-import kotlinx.coroutines.CoroutineScope
-import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.launch
 
 class LoginRepository(context: Context) {
 
     private var databaseConfig: DatabaseJadwal? = null
+    var sessonManager = SessonManager(context)
 
     init {
         databaseConfig = DatabaseJadwal.getInstance(context)
     }
 
-    companion object {
-        var databaseJadwal: DatabaseJadwal? = null
-        var user: LiveData<User>? = null
 
-        fun initializeDB(context: Context): DatabaseJadwal {
-            return DatabaseJadwal.getInstance(context)!!
+    @SuppressLint("CheckResult")
+    fun detailUser(
+
+        username: String,
+        password: String,
+        responHandler: (User) -> Unit,
+        errorHandler: (Throwable) -> Unit
+    ) {
+        io.reactivex.rxjava3.core.Observable.fromCallable {
+            databaseConfig?.userDao()?.getLoginDetail(username, password)
         }
+            .subscribeOn(Schedulers.io())
+            .observeOn(AndroidSchedulers.mainThread())
+            .subscribe({
+                it?.let { it1 ->
+                    responHandler(it1)
+                    sessonManager.username = it1.username
+                    sessonManager.login = true
+                }
+            }, {
+                errorHandler(it)
+            })
 
-        fun insertData(
-            context: Context,
-            username: String,
-            email: String,
-            password: String,
-            password1: String
+    }
 
-        ) {
-            databaseJadwal = initializeDB(context)
-            CoroutineScope(Dispatchers.IO).launch {
+    @SuppressLint("CheckResult")
+    fun cekLoginRegister(
 
-                val insertData = User(username, email, password, password1)
-                databaseJadwal!!.userDao().insert(insertData)
-
-
-            }
-
+        username: String,
+        email: String,
+        responHandler: (User) -> Unit,
+        errorHandler: (Throwable) -> Unit
+    ) {
+        io.reactivex.rxjava3.core.Observable.fromCallable {
+            databaseConfig?.userDao()?.getcekregister(username, email)
         }
+            .subscribeOn(Schedulers.io())
+            .observeOn(AndroidSchedulers.mainThread())
+            .subscribe({
+                it?.let { it1 ->
+                    responHandler(it1)
+
+                }
+            }, {
+                errorHandler(it)
+            })
+
+    }
 
 
-        fun getLoginDetail(context: Context, username: String, password: String): LiveData<User>? {
+    @SuppressLint("CheckResult")
+    fun showUser(responHandler: (List<User>?) -> Unit, errorHandler: (Throwable) -> Unit) {
+        Observable.fromCallable { databaseConfig?.userDao()?.getData() }
+            .subscribeOn(Schedulers.io())
+            .observeOn(AndroidSchedulers.mainThread())
+            .subscribe({
+                it?.let { it1 -> responHandler(it1) }
+            }, {
+                errorHandler(it)
+            })
+    }
 
-            databaseJadwal = initializeDB(context)
-            user = databaseJadwal!!.userDao().getLoginDetail(username, password)
-            Log.d("TAG", "validasi login viewmodel $user")
-            return user
-        }
-
-        fun getCeklogin(context: Context, username: String,email: String): LiveData<User>? {
-
-            databaseJadwal = initializeDB(context)
-            user = databaseJadwal!!.userDao().cekregister(username,email)
-            Log.d("TAG", "validasi username viewmodel $user")
-            return user
-        }
+    @SuppressLint("CheckResult")
+    fun insertUser(
+        item: User, responHandler: (Unit?) -> Unit, errorHandler: (Throwable) -> Unit
+    ) {
+        Observable.fromCallable() {
+            databaseConfig?.userDao()?.insert(item!!)
+        }.subscribeOn(Schedulers.io())
+            .observeOn(AndroidSchedulers.mainThread())
+            .subscribe({
+                responHandler(it)
+            }, {
+                errorHandler(it)
+            })
 
 
     }
 
-//
 }
+
+
+
 
 
 

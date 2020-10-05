@@ -1,4 +1,4 @@
-package com.example.register
+package com.example.register.View.Fragment
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -10,6 +10,7 @@ import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.NavController
 import androidx.navigation.Navigation
+import com.example.register.R
 import com.example.register.ViewModel.LoginViewModel
 import com.example.register.local.model.User
 import kotlinx.android.synthetic.main.fragment_register2.*
@@ -59,12 +60,18 @@ class Register2Fragment : Fragment(), View.OnClickListener {
         when (v?.id) {
             R.id.btnsubmit -> {
 
+
                 if (tvPassword1.text.toString().isEmpty()) {
                     tvPassword1.error = "password harus di isi"
 
                 } else if (tvPassword2.text.toString().isEmpty()) {
                     tvPassword2.error = " confirmasi password harus di isi"
-                } else  {
+                } else if(tvPassword1.text.toString().length <6 && tvPassword2.text.toString().length <= 6) {
+
+                   Toast.makeText(context,"password minimal 6 huruf ",Toast.LENGTH_SHORT).show()
+
+                    }
+                else {
                     if (tvPassword1.text.toString().equals(tvPassword2.text.toString())) {
                         val bundle: Bundle = bundleOf(
                             "name" to get_name,
@@ -74,12 +81,12 @@ class Register2Fragment : Fragment(), View.OnClickListener {
 
                         get_name?.let {
                             get_email?.let { it1 ->
-                                loginViewModel.insertData(
-                                    requireContext(),
+                                loginViewModel.addUserView(User( null,
                                     it,
                                     it1,
                                     tvPassword1.text.toString(),
                                     tvPassword2.text.toString()
+                                )
 
                                 )
                             }

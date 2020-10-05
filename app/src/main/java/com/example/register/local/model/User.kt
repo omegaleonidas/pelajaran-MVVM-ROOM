@@ -9,7 +9,9 @@ import androidx.room.PrimaryKey
 
 data class User(
 
-
+    @PrimaryKey(autoGenerate = true)
+    @ColumnInfo(name = "id")
+    var id: Int? = null,
 
     @ColumnInfo(name = "username")
     var username: String? = null,
@@ -24,7 +26,5 @@ data class User(
     var password1: String? = null
 
 ) {
-    @PrimaryKey(autoGenerate = true)
-    @ColumnInfo(name = "id")
-    var id: Int? = null
+
 }

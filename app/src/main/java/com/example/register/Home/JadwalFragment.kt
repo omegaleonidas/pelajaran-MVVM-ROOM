@@ -28,7 +28,7 @@ class JadwalFragment : Fragment() {
 
     private var jadwalDatabase: DatabaseJadwal? = null
     lateinit var jadwalViewModel: JadwalViewModel
-    var getName : String? = null
+
 
     private var dialogView: Dialog? = null
     override fun onCreateView(
@@ -42,9 +42,7 @@ class JadwalFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         jadwalViewModel.showJadwalView()
-
         attachObserve()
-
         floatingActionButton.setOnClickListener {
             getshowAddDialog()
 
@@ -55,7 +53,6 @@ class JadwalFragment : Fragment() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         jadwalViewModel = ViewModelProvider(this).get(JadwalViewModel::class.java)
-
         jadwalDatabase = context?.let { DatabaseJadwal.getInstance(it) }
     }
 
@@ -64,8 +61,6 @@ class JadwalFragment : Fragment() {
         val dialog = AlertDialog.Builder(context)
         val view: View = layoutInflater.inflate(R.layout.dialog_from_jadwal, null)
         dialog.setView(view)
-
-
         view.btnSave.setOnClickListener {
             if (view.editTextTextPersonName.text.isNotEmpty()) {
 
@@ -124,7 +119,6 @@ class JadwalFragment : Fragment() {
                 getShowUpdateData(item)
 
 
-
             }
 
         })
@@ -139,7 +133,6 @@ class JadwalFragment : Fragment() {
         view.btnSave.text = "update"
         view.editTextTextPersonName.setText(item?.pelajaran)
         view.tvDesckipsi.setText(item?.keterangan)
-
 
 
         view.btnSave.setOnClickListener {

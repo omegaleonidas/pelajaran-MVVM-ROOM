@@ -7,7 +7,7 @@
 
     <fragment
         android:id="@+id/mainFragment"
-        android:name="com.example.register.MainFragment"
+        android:name="com.example.register.View.Fragment.MainFragment"
         android:label="fragment_main"
         tools:layout="@layout/fragment_main"
         app:startDestination="@id/action_mainFragment_to_berandaFragment2">
@@ -34,7 +34,7 @@
     </fragment>
     <fragment
         android:id="@+id/register1Fragment"
-        android:name="com.example.register.Register1Fragment"
+        android:name="com.example.register.View.Fragment.Register1Fragment"
         android:label="fragment_register1"
         tools:layout="@layout/fragment_register1" >
         <action
@@ -44,7 +44,7 @@
     </fragment>
     <fragment
         android:id="@+id/register2Fragment"
-        android:name="com.example.register.Register2Fragment"
+        android:name="com.example.register.View.Fragment.Register2Fragment"
         android:label="fragment_register2"
         tools:layout="@layout/fragment_register2" >
         <action
@@ -54,7 +54,7 @@
     </fragment>
     <fragment
         android:id="@+id/resultFragment"
-        android:name="com.example.register.ResultFragment"
+        android:name="com.example.register.View.Fragment.ResultFragment"
         android:label="fragment_result"
         tools:layout="@layout/fragment_result" >
         <action

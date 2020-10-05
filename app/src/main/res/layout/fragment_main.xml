@@ -4,13 +4,13 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
 
-    android:layout_height="wrap_content"
+    android:layout_height="match_parent"
 
-    tools:context=".MainFragment">
+    tools:context=".View.Fragment.MainFragment">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="608dp">
+        android:layout_height="match_parent">
 
 
         <com.airbnb.lottie.LottieAnimationView
@@ -35,20 +35,20 @@
             android:layout_width="match_parent"
             android:layout_height="50dp"
             android:layout_marginStart="32dp"
-
-            android:textStyle="italic"
+            android:textSize="15dp"
             android:layout_marginLeft="32dp"
             android:layout_marginEnd="32dp"
             android:layout_marginRight="32dp"
             android:drawableStart="@drawable/ic_baseline_account_box_24"
             android:hint=" username"
+            android:textStyle="italic"
 
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.534"></EditText>
+            app:layout_constraintVertical_bias="0.528"></EditText>
 
         <EditText
             android:id="@+id/tvPassword"
@@ -92,6 +92,7 @@
             android:id="@+id/btnRegister"
             android:layout_width="300dp"
             android:layout_height="45dp"
+            android:layout_marginBottom="16dp"
             android:background="@drawable/border_gray"
             android:text="Register"
             android:textColor="@android:color/holo_blue_dark"
@@ -104,10 +105,10 @@
 
         <TextView
             android:id="@+id/textView3"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="-----------------------  or -----------------------"
-
+            android:text="----------------  or ------------------"
+            android:textAlignment="center"
             android:textSize="18dp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"

@@ -1,27 +1,18 @@
-package com.example.register
+package com.example.register.View.Fragment
 
-import android.content.Context
-import android.content.Intent
-import android.nfc.Tag
 import android.os.Bundle
-import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
-import android.view.SurfaceControl
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
-import androidx.core.os.bundleOf
-import androidx.fragment.app.viewModels
-import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.NavController
 import androidx.navigation.Navigation
-import com.example.register.Home.HomeActivity
+import com.example.register.R
 import com.example.register.ViewModel.LoginViewModel
+import com.example.register.local.model.User
 import kotlinx.android.synthetic.main.fragment_main.*
-import kotlinx.android.synthetic.main.fragment_register1.*
-import kotlin.math.log
 
 
 class MainFragment : Fragment(), View.OnClickListener {
@@ -33,11 +24,6 @@ class MainFragment : Fragment(), View.OnClickListener {
 
     lateinit var strUsername: String
     lateinit var strPassword: String
-
-    companion object {
-
-        const val LOGIN_SESSION = "login_session"
-    }
 
 
     override fun onCreateView(
@@ -51,15 +37,51 @@ class MainFragment : Fragment(), View.OnClickListener {
 
     }
 
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
 
+        loginViewModel = ViewModelProvider(this).get(LoginViewModel::class.java)
+
+    }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         navControler = Navigation.findNavController(view)
+        attachObserve()
         btnRegister.setOnClickListener(this)
         btnLogin.setOnClickListener(this)
-        loginViewModel = ViewModelProvider(this).get(LoginViewModel::class.java)
 
+
+    }
+
+
+    private fun attachObserve() {
+
+        loginViewModel.detailLogin.observe(
+            viewLifecycleOwner,
+            androidx.lifecycle.Observer { loginSucces(it) })
+        loginViewModel.isError.observe(
+            viewLifecycleOwner,
+            androidx.lifecycle.Observer { loginError(it) })
+
+    }
+
+    private fun loginError(it: Throwable) {
+        Toast.makeText(
+            context,
+            "  username belum ada coba register terlebih dahulu",
+            Toast.LENGTH_SHORT
+        ).show()
+    }
+
+    private fun loginSucces(it: User) {
+
+
+
+        navControler!!.navigate(
+            R.id.action_mainFragment_to_homeActivity3
+
+        )
 
     }
 
@@ -79,32 +101,8 @@ class MainFragment : Fragment(), View.OnClickListener {
                 } else if (strPassword.isEmpty()) {
                     tvPassword.error = "masukkan password"
                 } else {
-                  loginViewModel.getLoginDetails(requireContext(),strUsername,strPassword)!!
-                        .observe(viewLifecycleOwner, Observer {
-                            Log.d("TAG","datamasuk $it")
-                            if (it == null) {
-                                Toast.makeText(
-                                    context,
-                                    "data Tidak ada mohon untuk register ",
-                                    Toast.LENGTH_SHORT
-                                ).show()
+                    loginViewModel.getLogin(strUsername, strPassword)
 
-                            } else {
-                                val intent = Intent(context, HomeActivity::class.java)
-                                intent.putExtra(LOGIN_SESSION, strUsername)
-                                startActivity(intent)
-
-                                val bundle = bundleOf(
-                                    "name" to tvid.text.toString().trim()
-                                )
-                                navControler!!.navigate(
-                                    R.id.action_mainFragment_to_berandaFragment2,
-                                    bundle
-                                )
-
-
-                            }
-                        })
 
                 }
 //
