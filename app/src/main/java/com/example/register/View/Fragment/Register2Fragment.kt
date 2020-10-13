@@ -101,7 +101,8 @@ class Register2Fragment : Fragment(), View.OnClickListener {
                 }
 
             }
-            R.id.tvStep2 -> activity?.onBackPressed()
+            R.id.tvStep2 ->   activity?.onBackPressed()
+
 
         }
     }

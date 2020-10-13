@@ -25,8 +25,7 @@ class Register1Fragment : Fragment(), View.OnClickListener {
     lateinit var navController: NavController
     lateinit var strusernname: String
     lateinit var stremail: String
-    private lateinit var sharePref: SharedPreferences
-    lateinit var loginViewModel: LoginViewModel
+     lateinit var loginViewModel: LoginViewModel
 
 
     override fun onCreateView(
@@ -54,7 +53,7 @@ class Register1Fragment : Fragment(), View.OnClickListener {
 
 
     private fun validate(): Boolean {
-        var Email = tvEmailRegister.text.toString()
+        val Email = tvEmailRegister.text.toString()
         if (Patterns.EMAIL_ADDRESS.matcher(Email).matches()) {
 
             return true
@@ -91,7 +90,7 @@ class Register1Fragment : Fragment(), View.OnClickListener {
             )
 
 
-            navController!!.navigate(R.id.register2Fragment, bundle)
+            navController.navigate(R.id.register2Fragment, bundle)
 
 
         }

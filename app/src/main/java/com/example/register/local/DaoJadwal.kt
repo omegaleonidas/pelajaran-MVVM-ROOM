@@ -1,9 +1,7 @@
 package com.example.register.local
 
-import androidx.lifecycle.LiveData
 import androidx.room.*
 import com.example.register.local.model.Jadwal
-import io.reactivex.rxjava3.core.Completable
 
 @Dao
 interface DaoJadwal {

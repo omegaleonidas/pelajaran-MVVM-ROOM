@@ -41,10 +41,9 @@ class BerandaFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         navController = Navigation.findNavController(view)
-        var sessonManager = SessonManager (requireContext())
+        val sessonManager = SessonManager (requireContext())
 
         btnLogout.setOnClickListener(View.OnClickListener {
-
             sessonManager.logOut()
             val intent = Intent(context, MainActivity::class.java)
             intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK)

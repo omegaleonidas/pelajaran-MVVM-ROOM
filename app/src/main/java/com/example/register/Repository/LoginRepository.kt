@@ -27,7 +27,7 @@ class LoginRepository(context: Context) {
         responHandler: (User) -> Unit,
         errorHandler: (Throwable) -> Unit
     ) {
-        io.reactivex.rxjava3.core.Observable.fromCallable {
+        Observable.fromCallable {
             databaseConfig?.userDao()?.getLoginDetail(username, password)
         }
             .subscribeOn(Schedulers.io())
@@ -52,7 +52,7 @@ class LoginRepository(context: Context) {
         responHandler: (User) -> Unit,
         errorHandler: (Throwable) -> Unit
     ) {
-        io.reactivex.rxjava3.core.Observable.fromCallable {
+        Observable.fromCallable {
             databaseConfig?.userDao()?.getcekregister(username, email)
         }
             .subscribeOn(Schedulers.io())
@@ -86,7 +86,7 @@ class LoginRepository(context: Context) {
         item: User, responHandler: (Unit?) -> Unit, errorHandler: (Throwable) -> Unit
     ) {
         Observable.fromCallable() {
-            databaseConfig?.userDao()?.insert(item!!)
+            databaseConfig?.userDao()?.insert(item)
         }.subscribeOn(Schedulers.io())
             .observeOn(AndroidSchedulers.mainThread())
             .subscribe({

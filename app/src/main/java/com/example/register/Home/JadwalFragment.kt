@@ -1,22 +1,19 @@
 package com.example.register.Home
 
-import android.annotation.SuppressLint
 import android.app.AlertDialog
 import android.app.Dialog
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
-import androidx.core.os.bundleOf
+import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import com.example.register.Home.Adapter.JadwalAdapter
 import com.example.register.R
 import com.example.register.ViewModel.JadwalViewModel
 import com.example.register.local.DatabaseJadwal
 import com.example.register.local.model.Jadwal
-import kotlinx.android.synthetic.main.dialog_from_jadwal.*
 import kotlinx.android.synthetic.main.dialog_from_jadwal.view.*
 import kotlinx.android.synthetic.main.fragment_jadwal.*
 import java.text.DateFormat
@@ -64,9 +61,9 @@ class JadwalFragment : Fragment() {
         view.btnSave.setOnClickListener {
             if (view.editTextTextPersonName.text.isNotEmpty()) {
 
-                var pelajaran = view.editTextTextPersonName.text.toString()
-                var keterangan = view.tvDesckipsi.text.toString()
-                var tanggal = getDate()
+                val pelajaran = view.editTextTextPersonName.text.toString()
+                val keterangan = view.tvDesckipsi.text.toString()
+                val tanggal = getDate()
 
 
                 jadwalViewModel.addJadwalView(Jadwal(null, pelajaran, keterangan, tanggal))
