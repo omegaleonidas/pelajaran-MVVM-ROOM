@@ -179,7 +179,9 @@ class JadwalFragment : Fragment() {
         Toast.makeText(context, it?.message, Toast.LENGTH_SHORT).show()
     }
 
-    private fun showAddJadwal(it: Unit?) {
+    private fun showAddJadwal(
+
+        it: Unit?) {
         Toast.makeText(context, "Jadwal   pelajaran berhasil disimpan", Toast.LENGTH_SHORT).show()
         jadwalViewModel.showJadwalView()
     }

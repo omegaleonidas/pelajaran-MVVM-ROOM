@@ -50,7 +50,7 @@ class BerandaFragment : Fragment() {
             intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK)
             intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP)
           startActivity(intent)
-
+            activity?.finish()
         })
 
 

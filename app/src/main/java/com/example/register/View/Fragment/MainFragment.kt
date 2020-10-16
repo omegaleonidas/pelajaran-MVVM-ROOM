@@ -82,6 +82,8 @@ class MainFragment : Fragment(), View.OnClickListener {
             R.id.action_mainFragment_to_homeActivity3
 
         )
+        activity?.finish()
+
 
     }
 
@@ -94,23 +96,24 @@ class MainFragment : Fragment(), View.OnClickListener {
             R.id.btnLogin -> {
                 strUsername = tvid.text.toString().trim()
                 strPassword = tvPassword.text.toString().trim()
-
-                if (strUsername.isEmpty()) {
-
-                    tvid.error = " masukkan username"
-                } else if (strPassword.isEmpty()) {
-                    tvPassword.error = "masukkan password"
-                } else {
-                    loginViewModel.getLogin(strUsername, strPassword)
-
-
-                }
+                loginViewModel.getLogin(strUsername, strPassword)
+//                if (strUsername.isEmpty()) {
+//
+//                    tvid.error = " masukkan username"
+//                } else if (strPassword.isEmpty()) {
+//                    tvPassword.error = "masukkan password"
+//                } else {
+//
+//
+//
+//                }
 //
 
 
             }
         }
     }
+
 
 
 }
