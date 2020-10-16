@@ -34,7 +34,8 @@ class LoginViewModel(application: Application) : AndroidViewModel(application) {
         })
     }
 
-    fun addUserView(item: User) {
+    fun addUserView( item: User) {
+
         repository.insertUser(item, {
             AddUser.value = it
         }, {

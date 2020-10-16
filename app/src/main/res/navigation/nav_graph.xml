@@ -68,11 +68,6 @@
         android:label="activity_home"
         tools:layout="@layout/activity_home" />
     <fragment
-        android:id="@+id/flashscreenn"
-        android:name="com.example.register.flashscreenn"
-        android:label="fragment_flashscreenn"
-        tools:layout="@layout/fragment_flashscreenn" />
-    <fragment
         android:id="@+id/berandaFragment2"
         android:name="com.example.register.Home.BerandaFragment"
         android:label="fragment_beranda"

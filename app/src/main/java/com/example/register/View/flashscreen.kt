@@ -17,13 +17,17 @@ class flashscreen : AppCompatActivity() {
         Handler().postDelayed(Runnable {
 
             if (sessonLogin.login ?: true) {
+
                 startActivity(Intent(this, HomeActivity::class.java))
+                finish()
             } else {
                 startActivity(Intent(this, MainActivity::class.java))
+                    finish()
             }
 
         }, 5000)
         title = ""
+
 
     }
 
