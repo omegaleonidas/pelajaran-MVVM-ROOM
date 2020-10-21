@@ -51,6 +51,9 @@
             android:id="@+id/action_register2Fragment_to_resultFragment2"
             app:destination="@id/resultFragment"
             app:enterAnim="@anim/slide_in_right" />
+        <action
+            android:id="@+id/action_register2Fragment_to_register1Fragment"
+            app:destination="@id/register1Fragment" />
     </fragment>
     <fragment
         android:id="@+id/resultFragment"

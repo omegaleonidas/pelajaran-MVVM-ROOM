@@ -59,23 +59,19 @@ class JadwalFragment : Fragment() {
         val view: View = layoutInflater.inflate(R.layout.dialog_from_jadwal, null)
         dialog.setView(view)
         view.btnSave.setOnClickListener {
-            if (view.editTextTextPersonName.text.isNotEmpty()) {
-
-                val pelajaran = view.editTextTextPersonName.text.toString()
-                val keterangan = view.tvDesckipsi.text.toString()
-                val tanggal = getDate()
 
 
-                jadwalViewModel.addJadwalView(Jadwal(null, pelajaran, keterangan, tanggal))
+            val pelajaran = view.editTextTextPersonName.text.toString()
+            val keterangan = view.tvDesckipsi.text.toString()
+            val tanggal = getDate()
 
 
-                Toast.makeText(context, "data telah tersimpan ", Toast.LENGTH_SHORT).show()
+            jadwalViewModel.addJadwalView(Jadwal(null, pelajaran, keterangan, tanggal))
 
-                dialogView?.dismiss()
-            } else {
-                view.editTextTextPersonName.error = "data harus di isi"
-                view.tvDesckipsi.error = "data harus di isi"
-            }
+
+         //   dialogView?.dismiss()
+
+
         }
         view.imageView.setOnClickListener {
             dialogView?.dismiss()
@@ -137,16 +133,8 @@ class JadwalFragment : Fragment() {
             val matapelajran = view.editTextTextPersonName.text.toString()
             val keterangan = view.tvDesckipsi.text.toString()
             val date = getDate()
+            jadwalViewModel.updateJadwalView(Jadwal(id, matapelajran, keterangan, date))
 
-            if (view.editTextTextPersonName.text.isNotEmpty()) {
-
-
-                jadwalViewModel.updateJadwalView(Jadwal(id, matapelajran, keterangan, date))
-                dialogView?.dismiss()
-            } else {
-                view.editTextTextPersonName.error = "data harus di isi"
-                view.tvDesckipsi.error = "data harus di isi"
-            }
         }
         view.imageView.setOnClickListener {
             dialogView?.dismiss()
@@ -182,11 +170,13 @@ class JadwalFragment : Fragment() {
     private fun showAddJadwal(
 
         it: Unit?) {
+        dialogView?.dismiss()
         Toast.makeText(context, "Jadwal   pelajaran berhasil disimpan", Toast.LENGTH_SHORT).show()
         jadwalViewModel.showJadwalView()
     }
 
     private fun showUpdateJadwal(it: Unit?) {
+        dialogView?.dismiss()
         Toast.makeText(context, "Jadwal pelajran berhasil diupdate", Toast.LENGTH_SHORT).show()
         jadwalViewModel.showJadwalView()
     }

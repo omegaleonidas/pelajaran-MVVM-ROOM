@@ -29,7 +29,9 @@ class JadwalRepository(context: Context) {
     }
 
     @SuppressLint("CheckResult")
-    fun addDataJadwal(item: Jadwal, responHandler: (Unit?) -> Unit, errorHandler: (Throwable) -> Unit) {
+    fun addDataJadwal(
+   item: Jadwal,
+        responHandler: (Unit?) -> Unit, errorHandler: (Throwable) -> Unit) {
         io.reactivex.rxjava3.core.Observable.fromCallable { databaseConfig?.jadwalDao()?.insert(item) }
             .subscribeOn(Schedulers.io())
             .observeOn(AndroidSchedulers.mainThread())

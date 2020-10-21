@@ -16,8 +16,4 @@ data class Jadwal(
     var keterangan: String? = null,
     @ColumnInfo(name = "date")
     var date: String? = null
-){
-
-
-
-}
+)

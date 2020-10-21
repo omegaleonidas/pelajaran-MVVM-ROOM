@@ -25,6 +25,4 @@ data class User(
     @ColumnInfo(name = "password1")
     var password1: String? = null
 
-) {
-
-}
+)
